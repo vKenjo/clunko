@@ -1,0 +1,32 @@
+---
+id: 0
+name: Devnet deployment
+network: devnet
+stacks-node: "http://localhost:20443"
+bitcoin-node: "http://devnet:devnet@localhost:18443"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: main-lottery-v2
+            expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            cost: 228620
+            path: contracts/main-lottery.clar
+            anchor-block-only: true
+            clarity-version: 3
+        - contract-publish:
+            contract-name: number-generator-v2
+            expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            cost: 49890
+            path: contracts/number-generator.clar
+            anchor-block-only: true
+            clarity-version: 3
+        - contract-publish:
+            contract-name: prize-disbursement-v2
+            expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            cost: 168570
+            path: contracts/prize-disbursement.clar
+            anchor-block-only: true
+            clarity-version: 3
+      epoch: "3.2"

@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+:root {
+  --background: #1a0f2e;
+  --foreground: #ffffff;
+  --primary-gold: #FFB800;
+  --primary-gold-hover: #FFA500;
+  --primary-purple: #2d1b4e;
+  --dark-purple: #1a0f2e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: linear-gradient(135deg, #0f0720 0%, #1a0f2e 25%, #2d1b4e 50%, #1a0f2e 75%, #0f0720 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(91, 173, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(255, 184, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: glowPulse 10s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Decorative shapes */
+.decorative-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.decorative-shapes::before,
+.decorative-shapes::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-25px) translateX(0px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-15px) translateX(-10px) rotate(270deg);
+  }
+}
+
+.floating-shape {
+  position: absolute;
+  animation: floatSlow 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+@keyframes zoom-in-50 {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation: zoom-in-50 0.2s ease-out;
+}
+
+.zoom-in-50 {
+  animation: zoom-in-50 0.2s ease-out;
+}
+
+.duration-200 {
+  animation-duration: 0.2s;
+}
+
+* {
+  position: relative;
+  z-index: 2;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0f2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFB800 0%, #FFA500 100%);
+  border-radius: 6px;
+  border: 2px solid #1a0f2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFA500 0%, #FF8C00 100%);
+}
+
+/* Button animations */
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 184, 0, 0);
+  }
+}
+
+.btn-pulse {
+  animation: buttonPulse 2s infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 184, 0, 0.3);
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Glow text effect */
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 184, 0, 0.8),
+               0 0 20px rgba(255, 184, 0, 0.6),
+               0 0 30px rgba(255, 184, 0, 0.4);
+}
+
+/* Number picker glow */
+.number-glow {
+  box-shadow: 0 0 10px rgba(255, 184, 0, 0.5),
+              inset 0 0 10px rgba(255, 184, 0, 0.2);
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

@@ -1,0 +1,52 @@
+[project]
+name = 'projectx'
+description = ''
+authors = []
+telemetry = true
+cache_dir = './.cache'
+requirements = []
+
+# Original contracts (for local development and testing)
+[contracts.main-lottery]
+path = 'contracts/main-lottery.clar'
+clarity_version = 3
+epoch = 'latest'
+
+[contracts.number-generator]
+path = 'contracts/number-generator.clar'
+clarity_version = 3
+epoch = 'latest'
+
+[contracts.prize-disbursement]
+path = 'contracts/prize-disbursement.clar'
+clarity_version = 3
+epoch = 'latest'
+
+# Version 2 contracts (deployed on testnet with updated number range 1-59)
+[contracts.main-lottery-v2]
+path = 'contracts/main-lottery.clar'
+clarity_version = 3
+epoch = 'latest'
+
+[contracts.number-generator-v2]
+path = 'contracts/number-generator.clar'
+clarity_version = 3
+epoch = 'latest'
+
+[contracts.prize-disbursement-v2]
+path = 'contracts/prize-disbursement.clar'
+clarity_version = 3
+epoch = 'latest'
+
+[repl.analysis]
+passes = ['check_checker']
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
+
+[repl.remote_data]
+enabled = false
+api_url = 'https://api.hiro.so'
