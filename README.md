@@ -303,12 +303,12 @@ NEXT_PUBLIC_CONTRACT_NAME=main-lottery
 
 ### Prize Tiers
 
-| Matches | Prize      | % of Pool |
-|---------|------------|-----------|
-| 6/6     | Jackpot    | 50%       |
-| 5/6     | 2nd Tier   | 25%       |
-| 4/6     | 3rd Tier   | 15%       |
-| 3/6     | 4th Tier   | 10%       |
+| Matches | Prize      | % of Pool                           |
+|---------|------------|-------------------------------------|
+| 6/6     | Jackpot    | 75% + 10% to charity (if selected) |
+| 5/6     | 2nd Tier   | 10%                                 |
+| 4/6     | 3rd Tier   | 5%                                  |
+| 3/6     | 4th Tier   | Ticket cost + gas fee refund        |
 
 ### Round Lifecycle
 
